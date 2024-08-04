@@ -1,0 +1,5 @@
+fisheye_front_topic: "/driver/fisheye/front/compressed"
+fisheye_back_topic: "/driver/fisheye/back/compressed"
+fisheye_left_topic: "/driver/fisheye/left/compressed"
+fisheye_right_topic: "/driver/fisheye/right/compressed"
+localization_topic: "/localization/estimation"

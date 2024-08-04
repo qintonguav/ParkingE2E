@@ -1,0 +1,16 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager" output="screen"/>
+  <param name="avm_pixel_per_meter" value='108'/>
+  <node pkg="nodelet" type="nodelet" name="avm_nodelet" args="load fisheye_avm/avm_nodelet nodelet_manager" output="screen">        
+    <param name="back_param" value="$(find core)/config/back.yaml"/>
+    <param name="front_param" value="$(find core)/config/front.yaml"/>
+    <param name="left_param" value="$(find core)/config/left.yaml"/>
+    <param name="right_param" value="$(find core)/config/right.yaml"/>
+    <param name="output_topic" value="/driver/fisheye/avm"/>
+    <param name="output_width" value="1080"/>
+    <param name="output_height" value="1080"/>
+    <param name="output_scale" value="2.0"/>
+    <param name="interpolation_mode" value="1"/> 
+    <param name="logging" value="false"/>
+  </node>
+</launch>

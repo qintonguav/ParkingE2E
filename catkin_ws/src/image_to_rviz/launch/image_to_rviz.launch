@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="image_to_rviz" type="image_to_rviz" name="image_to_rviz"/>
+</launch>

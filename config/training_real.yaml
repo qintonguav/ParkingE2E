@@ -1,0 +1,59 @@
+##################### Dataset Options #####################
+data_dir: './e2e_dataset/'
+training_dir: "2024_02_22_Opt"
+validation_dir: "2024_02_22_Val"
+
+##################### Basic Options #####################
+data_mode: "real_scene"
+num_gpus: 1
+cuda_device_index: "0"
+log_root_dir: './log/'
+checkpoint_root_dir: './ckpt'
+log_every_n_steps: 10
+check_val_every_n_epoch: 5
+epochs: 40
+learning_rate: 0.0001
+weight_decay: 0.00001
+batch_size: 1
+num_workers: 8
+# resume_path: ""
+
+##################### Data Process #####################
+autoregressive_points: 30
+traj_downsample_stride: 3
+item_number: 2
+token_nums: 1200
+append_token: 3
+xy_max: 12
+process_dim: [256, 256]
+
+##################### BEV Encoder #####################
+bev_encoder_in_channel: 64
+bev_x_bound: [-10.0, 10.0, 0.1]
+bev_y_bound: [-10.0, 10.0, 0.1]
+bev_z_bound: [-10.0, 10.0, 20.0]
+d_bound: [0.5, 12.5, 0.25]
+final_dim: [256, 256]
+bev_down_sample: 8
+backbone: "efficientnet-b4"
+
+##################### Target #####################
+add_noise_to_target: True
+target_noise_threshold: 0.5
+target_range: 1.4
+use_fuzzy_target: False
+
+##################### BEV Query #####################
+fusion_method: "query"
+query_en_dim: 256
+query_en_heads: 4
+query_en_layers: 4
+query_en_dropout: 0.05
+query_en_bev_length: 256
+
+##################### Decoder #####################
+decoder_method: "transformer"
+tf_de_dim: 256
+tf_de_heads: 4
+tf_de_layers: 4
+tf_de_dropout: 0.05

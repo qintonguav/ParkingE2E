@@ -1,0 +1,7 @@
+<library path="lib/libavm_nodelet">
+  <class name="fisheye_avm/avm_nodelet" type="avm_nodelet" base_class_type="nodelet::Nodelet">
+  <description>
+    This is my nodelet.
+  </description>
+  </class>
+</library>

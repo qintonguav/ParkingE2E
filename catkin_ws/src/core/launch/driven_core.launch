@@ -1,0 +1,18 @@
+<launch>
+  <rosparam file="$(find core)/config/params.yaml" command="load" />
+
+  <node pkg="core" type="e2e_traj_show.py" name="e2e_traj_show"/>
+
+  <!-- Rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args='-d $(find core)/rviz/visual_BEV.rviz' />
+
+  <!-- IPM -->
+  <include file="$(find fisheye_avm)/launch/avm_nodelet.launch"/>
+
+  <!-- Display the IPM image in Rviz -->
+  <include file="$(find image_to_rviz)/launch/image_to_rviz.launch"/>
+
+  <!-- Undistort -->
+  <include file="$(find undistort)/launch/undistort.launch"/>
+
+</launch>

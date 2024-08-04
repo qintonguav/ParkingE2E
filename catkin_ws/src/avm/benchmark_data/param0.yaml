@@ -1,0 +1,32 @@
+%YAML:1.0
+
+Width: 1920
+Height: 1080
+
+StretchMatrix: !!opencv-matrix
+  rows: 2
+  cols: 2
+  dt: d
+  data: [0.998661868413995, 8.246479777117340e-04, -0.003712058294221, 1]
+
+MappingCoefficients: !!opencv-matrix
+  rows: 4
+  cols: 1
+  dt: d
+  data: [5.080670450770476e+02, -4.188906997318177e-04,
+         3.957530420691659e-08, -2.770499612859330e-10]
+
+DistortionCenter: !!opencv-matrix
+  rows: 2
+  cols: 1
+  dt: d
+  data: [9.713484401524236e+02, 5.354041917959559e+02]
+
+TransformMatrix: !!opencv-matrix
+  rows: 3
+  cols: 3
+  dt: d
+  data: [-5.33235829e+00,  1.01117958e+01, -2.37642967e+03,
+          9.39900077e-02,  3.78210669e+00, -5.26071562e+02,
+          2.28960069e-04,  1.03339369e-02, -2.44223538e+00]
+  # data: [1,0,960,0,1,540,0,0,1]

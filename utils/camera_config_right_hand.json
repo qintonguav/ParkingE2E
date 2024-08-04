@@ -1,0 +1,62 @@
+{
+    "CAM_FRONT": {
+        "extrinsics": {
+            "yaw":      1.79,
+            "roll":     -0.83,
+            "pitch":    4.16,
+            "x":        3.67,
+            "y":        0.04,
+            "z":        0.71
+        },
+        "intrinsics": {
+            "width": 480,
+            "height": 270,
+            "fov": 127
+        }
+    },
+    "CAM_LEFT": {
+        "extrinsics": {
+            "yaw":      89.91,
+            "roll":     -0.38,
+            "pitch":    35.91,
+            "x":        2.09,
+            "y":        0.98,
+            "z":        1.02
+        },
+        "intrinsics": {
+            "width": 480,
+            "height": 270,
+            "fov": 127
+        }
+    },
+    "CAM_RIGHT": {
+        "extrinsics": {
+            "yaw":      -88.49,
+            "roll":     -3.32,
+            "pitch":    36.07,
+            "x":        2.11,
+            "y":        -0.95,
+            "z":        1.00
+        },
+        "intrinsics": {
+            "width": 480,
+            "height": 270,
+            "fov": 127
+        }
+    },
+    "CAM_REAR": {
+        "extrinsics": {
+            "yaw":      -177.36,
+            "roll":     0.71,
+            "pitch":    21.27,
+            "x":        -0.90,
+            "y":        -0.05,
+            "z":        0.65
+        },
+        "intrinsics": {
+            "width": 480,
+            "height": 270,
+            "fov": 127
+        }
+    }
+}

@@ -13,6 +13,8 @@ The proposed end-to-end approach utilizes a target query encoder to fuse images 
 
 <img src="resource/video_show.gif" height="250">
 
+Supplementary video material is available at: [\[Link\]](https://youtu.be/urOEHJH1TBQ).
+
 **Related Papers:**
 
 - Changze Li, Ziheng Ji, Zhe Chen, Tong Qin and Ming Yang. "ParkingE2E: Camera-based End-to-end Parking Network, from Images to Planning." 2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). IEEE, 2024. [\[Link\]](./resource/iros2024_parking.pdf)

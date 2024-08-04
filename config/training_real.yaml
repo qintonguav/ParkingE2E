@@ -1,7 +1,7 @@
 ##################### Dataset Options #####################
 data_dir: './e2e_dataset/'
-training_dir: "2024_02_22_Opt"
-validation_dir: "2024_02_22_Val"
+training_dir: "train"
+validation_dir: "val"
 
 ##################### Basic Options #####################
 data_mode: "real_scene"

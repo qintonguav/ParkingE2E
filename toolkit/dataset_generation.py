@@ -1,4 +1,5 @@
 import os
+import random
 import sys
 
 import yaml
@@ -46,21 +47,27 @@ class TaskExecutor:
 
 class Bag2E2E:
     def __init__(self, bag_file_path, output_folder, config_file_path, start_time=0.0, duration_time=-1, pose_format= "euler_angle", sample_rate=1, image_channel_list=["left", "right", "front", "back"]):
-        self.bag_tage = os.path.splitext(os.path.basename(bag_file_path))[0]
+        self.bag_tag = os.path.splitext(os.path.basename(bag_file_path))[0]
         
         self.get_topic(config_file_path)
 
-        self.output_folder = os.path.join(output_folder, self.bag_tage)
-        os.makedirs(self.output_folder, exist_ok=True)
+        self.output_folder_train = os.path.join(output_folder, "train", self.bag_tag)
+        self.output_folder_val = os.path.join(output_folder, "val", self.bag_tag)
         
+        os.makedirs(self.output_folder_train, exist_ok=True)
+        os.makedirs(self.output_folder_val, exist_ok=True)
+
         self.image_channel_list = image_channel_list
         self.pose_format = pose_format
         self.start_time = start_time
         self.duration_time = duration_time
 
         self.sample_rate = sample_rate
-        if not os.path.exists(self.output_folder):
-            os.makedirs(self.output_folder)
+        if not os.path.exists(self.output_folder_train):
+            os.makedirs(self.output_folder_train)
+
+        if not os.path.exists(self.output_folder_val):
+            os.makedirs(self.output_folder_val)
 
         self.bag = rosbag.Bag(bag_file_path)
         self.bridge = CvBridge()
@@ -222,7 +229,7 @@ class Bag2E2E:
         if not self.record_start:
             if self.driving_state == self.record_state:
                 self.record_start = True
-                self.segment_path = os.path.join(self.output_folder, "{}".format(str(int(self.current_time.to_sec()))))
+                self.segment_path = os.path.join(self.output_folder_train, "{}".format(str(int(self.current_time.to_sec()))))
                 self.name_cnt = 0
                 self.frequenct_cnt = 0
                 self.yaw_list = []
@@ -307,6 +314,19 @@ class Bag2E2E:
                 break
         self.bag.close()
 
+    def assign_camera_config(self, camera_config):
+        for item in os.listdir(self.output_folder_train):
+            shutil.copyfile(camera_config, os.path.join(self.output_folder_train, 
+                                                        item, os.path.basename(camera_config)))
+
+    def assign_val(self):
+        li = os.listdir(self.output_folder_train)
+        random_list = random.sample(li, max(len(li) // 10, 1))
+        for item in random_list:
+            shutil.move(os.path.join(self.output_folder_train, item), 
+                            os.path.join(self.output_folder_val, item))
+
+
 @click.command()
 @click.option("--bag_file_path", type=str, default="")
 @click.option("--output_folder_path", type=str, default="")
@@ -314,10 +334,13 @@ class Bag2E2E:
 @click.option("--start_time", type=float, default=0.0)
 @click.option("--duration_time", type=int, default=-1)
 @click.option("--sampling_rate", type=int, default=1)
-def main(bag_file_path, output_folder_path, config_file_path, start_time, duration_time, sampling_rate):
+@click.option("--camera_config", type=str, default="./utils/camera_config_right_hand.json")
+def main(bag_file_path, output_folder_path, config_file_path, start_time, duration_time, sampling_rate, camera_config):
 
     transform_obj = Bag2E2E(bag_file_path, output_folder_path, config_file_path, start_time, duration_time, sample_rate=sampling_rate)
     transform_obj.transfer()
+    transform_obj.assign_camera_config(camera_config)
+    transform_obj.assign_val()
 
 if __name__ == "__main__":
     main()

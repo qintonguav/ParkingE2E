@@ -80,20 +80,19 @@ In rviz, you can also select the parking trarget using `2D nav goal` on the rviz
 <img src="resource/demo.gif" height="250">
 
 ## 4. Train
-
+We provide the [demo rosbag](https://drive.google.com/file/d/1jIG1iRMeW9XXdWP7eEJKnZP1gC0xvG7o/view?usp=drive_link) to create a mini dataset and train a model.
 #### Generate dataset
-First, you need to create dataset, confirm the rosbag topic in `catkin_ws/src/core/config/params.yaml` and run the following command:
+First, you need to create a dataset.
 ```
-python toolkit/dataset_generation.py --bag_file_path ${ROS_BAG_PATH} --output_folder_path ${DATASET_SAVE_PATH}
+python toolkit/dataset_generation.py --bag_file_path ${DEMO_BAG_PATH} --output_folder_path ./e2e_dataset
 ```
-
-#### Modify training config
-After you generate the dataset, you need to modify dataset config `data_dir`, `training_dir` and `validation_dir` in `./config/training_real.yaml`.
+If you use your own rosbag, please confirm the rosbag topic in `./catkin_ws/src/core/config/params.yaml` and modify the camera configuration.
 
 #### Train your model
 ```Shell
 python train.py --config ./config/training_real.yaml
 ```
+You can modify the training configuration in `./config/training_real.yaml`.
 
 
 ## 5. License

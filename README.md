@@ -35,7 +35,7 @@ cd e2e_parking_imitation/
 
 Install virtual environment:
 ```Shell
-conda env create -f environment.yml
+conda env create -f environment.yaml
 ```
 
 Setup interface:

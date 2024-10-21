@@ -69,11 +69,10 @@ class BevQuery(nn.Module):
         img_feature = img_feature.permute(0, 2, 1)  # [batch_size, seq_len, embed_dim]
 
         tgt_feature = tgt_feature + self.pos_embed
-        img_feature = tgt_feature + self.pos_embed
+        img_feature = img_feature + self.pos_embed
 
         bev_feature = self.tf_query(tgt_feature, memory=img_feature)
 
-        bev_feature.permute(0, 2, 1)
         bev_feature = bev_feature.view(batch_size, channel, h, w)
         return bev_feature
 

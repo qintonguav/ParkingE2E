@@ -51,7 +51,8 @@ source devel/setup.bash
 ## 3. Run
 
 #### Download pretrained model and test data:
-Firstly, you should download the [pretrained model](https://drive.google.com/file/d/1rZ4cmgXOUFgJDLFdnvAI6voU9ZkhsmYV/view?usp=drive_link) and [test data](https://drive.google.com/file/d/11kA-srYa6S30OqyCdyg3jGNZxBMsUHYC/view?usp=drive_link). Then, you need to modify inference config `model_ckpt_path` in `./config/inference_real.yaml`.
+
+Firstly, you should download the `pretrained model` [[Google Drive](https://drive.google.com/file/d/1twLWoamOc3PsXG5WJYqFgrMl104HV7Ut/view?usp=drive_link) or [Baidunetdisk](https://pan.baidu.com/s/1va_UC9nl-ykJcoeqOSt-0w?pwd=ifev)] and `test data` [[Google Drive](https://drive.google.com/file/d/11kA-srYa6S30OqyCdyg3jGNZxBMsUHYC/view?usp=drive_link) or [Baidunetdisk](https://pan.baidu.com/s/1m-PCvSfPydHlQaV59Wm3tg?pwd=82w5)]. Then, you need to modify inference config `model_ckpt_path` in `./config/inference_real.yaml`.
 
 #### Run driven program:
 ```Shell
@@ -80,7 +81,7 @@ In rviz, you can also select the parking trarget using `2D nav goal` on the rviz
 <img src="resource/demo.gif" height="250">
 
 ## 4. Train
-We provide the [demo rosbag](https://drive.google.com/file/d/1jIG1iRMeW9XXdWP7eEJKnZP1gC0xvG7o/view?usp=drive_link) to create a mini dataset and train a model.
+We provide the `demo rosbag` [[Google Drive](https://drive.google.com/file/d/1jIG1iRMeW9XXdWP7eEJKnZP1gC0xvG7o/view?usp=drive_link) or [Baidunetdisk](https://pan.baidu.com/s/1fQ5dWB2ZhRGifwezykt6Ug?pwd=sxug)] to create a mini dataset and train a model.
 #### Generate dataset
 First, you need to create a dataset.
 ```
